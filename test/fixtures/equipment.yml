@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_attachment: 1
+  description: MyString
+
+two:
+  id_attachment: 1
+  description: MyString

@@ -1,0 +1,2 @@
+module EquipPeopleHelper
+end

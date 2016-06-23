@@ -1,0 +1,16 @@
+<% @workers.each do |worker| %>
+  <div class="person well">
+    <div class="name"><%= worker.name %></div>
+    <div class="description">
+      <%= worker.description %><br/>
+      Adresse : <%= worker.address %><br/>
+      Tél : <%= worker.tel %><br/>
+      <%= render partial: "shared/edit_link", locals: {path: edit_worker_path(worker)} %>
+      <%= render partial: "shared/remove_link", locals: {object: worker} %>
+    </div>
+    </div>
+<% end %>
+
+<br/>
+
+<%= render partial: "shared/add_link", locals: {path: new_worker_path, text: "Ajouter un professionnel de la santé"} %>

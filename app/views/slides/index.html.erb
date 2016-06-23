@@ -1,0 +1,39 @@
+<h1>Visite guidée</h1>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+  <% if Slide.count > 0 %>
+    <ol class="carousel-indicators">
+      <% for i in 0..Slide.count-1 do %>
+        <li data-target="#myCarousel" data-slide-to="<%= i %>"<%= ' class="active"' if i==0 %>></li>
+      <% end %>
+    </ol>
+  <% end %>
+
+  <div class="carousel-inner" role="listbox">
+    <% isFirst = true %>
+    <% @slides.each do |slide| %>
+      <div class="item<%= ' active' if isFirst %>">
+        <%= image_tag attachment_show_path(slide.id_attachment) %>
+        <div class="carousel-caption">
+          <p><%= slide.description %></p>
+          <%= render partial: "shared/edit_link", locals: {path: edit_slide_path(slide)} %>
+          <%= render partial: "shared/remove_link", locals: {object: slide} %>
+          <% isFirst = false %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Précédent</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Suivant</span>
+  </a>
+</div>
+<br>
+
+<%= render partial: "shared/add_link", locals: {path: new_slide_path, text: "Ajouter une diapositive"} %>

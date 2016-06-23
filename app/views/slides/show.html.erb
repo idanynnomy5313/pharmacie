@@ -1,0 +1,12 @@
+<p>
+  <strong>Id attachment:</strong>
+  <%= @slide.id_attachment %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @slide.description %>
+</p>
+
+<%= link_to 'Edit', edit_slide_path(@slide) %> |
+<%= link_to 'Back', slides_path %>

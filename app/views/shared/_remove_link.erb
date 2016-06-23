@@ -1,0 +1,6 @@
+<% if admin? %>
+	<%= link_to object, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cet élément ?' } do %>
+		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+		Supprimer
+	<% end %>
+<% end %>

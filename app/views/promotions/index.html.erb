@@ -1,0 +1,16 @@
+<div>
+  <% @promotions.each do |promotion| %>
+    <div class="person well">
+      <div class="photo"><%= image_tag attachment_show_path(promotion.id_attachment) %></div>
+      <div class="description">
+        <%= promotion.description %><br/>
+        <%= render partial: "shared/edit_link", locals: {path: edit_promotion_path(promotion)} %>
+        <%= render partial: "shared/remove_link", locals: {object: promotion} %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br/>
+
+<%= render partial: "shared/add_link", locals: {path: new_promotion_path, text: "Ajouter une promotion"} %>

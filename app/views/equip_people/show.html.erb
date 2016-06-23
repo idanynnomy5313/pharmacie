@@ -1,0 +1,17 @@
+<p>
+  <strong>Name:</strong>
+  <%= @equip_person.name %>
+</p>
+
+<p>
+  <strong>Id attachment:</strong>
+  <%= @equip_person.id_attachment %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @equip_person.description %>
+</p>
+
+<%= link_to 'Modifier', edit_equip_person_path(@equip_person) %> |
+<%= link_to 'Retour', equip_people_path %>

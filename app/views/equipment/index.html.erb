@@ -1,0 +1,16 @@
+<div>
+  <% @equipment.each do |equipment| %>
+    <div class="person well">
+      <div class="photo"><%= image_tag attachment_show_path(equipment.id_attachment) %></div>
+      <div class="description">
+        <%= equipment.description %><br/>
+        <%= render partial: "shared/edit_link", locals: {path: edit_equipment_path(equipment)} %>
+        <%= render partial: "shared/remove_link", locals: {object: equipment} %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br/>
+
+<%= render partial: "shared/add_link", locals: {path: new_equipment_path, text: "Ajouter un équipement"} %>

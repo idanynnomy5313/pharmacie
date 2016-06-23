@@ -1,0 +1,6 @@
+<% if admin? %>
+	<%= link_to path do %>
+		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+		<%= if defined?(text) then text else "Ajouter" end %>
+	<% end %>
+<% end %>

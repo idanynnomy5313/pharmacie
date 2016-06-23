@@ -1,0 +1,12 @@
+<p>
+  <strong>Id attachment:</strong>
+  <%= @equipment.id_attachment %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @equipment.description %>
+</p>
+
+<%= link_to 'Modifier', edit_equipment_path(@equipment) %> |
+<%= link_to 'Retour', equipment_index_path %>

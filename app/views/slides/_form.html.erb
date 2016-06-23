@@ -1,0 +1,27 @@
+<%= form_tag({:action => 'index'}, :multipart => true) do %>
+  <% if slide.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(slide.errors.count, "error") %> prohibited this slide from being saved:</h2>
+
+      <ul>
+      <% slide.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag(:description, "Description :") %>
+    <%= text_area_tag(:description) %>
+  </div>
+  
+  <div class="field">
+    <%= label_tag(:attachment, "Image :") %>
+    <%= file_field_tag(:attachment) %>
+  </div>
+  
+  <div class="actions">
+    <%= submit_tag "Valider" %>
+  </div>
+<% end %>

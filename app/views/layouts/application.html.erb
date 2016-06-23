@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pharmacie</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+
+    <!--<%= stylesheet_link_tag 'bootstrap', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= stylesheet_link_tag 'bootstrap-theme', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <!--<%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => 'reload' %>-->
+
+  </head>
+
+  <body>
+<!--
+<ul id="menu_entete">
+  <li><a href="#">Accueil</a>
+    <ul>
+      <li><%= link_to "Présentation", "/home" %></li>
+      <li><%= link_to "Charte de qualité", "/charter" %></li>
+    </ul>
+  </li>
+  <li><a href="#">Informations pratiques</a>
+    <ul>
+      <li><a href="#">Horaires</a></li>
+      <li><a href="#">Accès</a></li>
+    </ul>
+  </li>
+  <li><a href="#">Contact</a>
+    <ul>
+      <li><a href="#">Nous contacter</a></li>
+      <li><a href="#">Professionnels de santé</a></li>
+      <li><%= link_to "L'équipe", equip_people_path %></li>
+    </ul>
+  </li>
+  <li><a href="#">Vitrine</a>
+    <ul>
+      <li><a href="#">Visite guidée</a></li>
+      <li><a href="#">Promotions</a></li>
+      <li><a href="#">Matériel médical</a></li>
+    </ul>
+  </li>
+  <% if !session[:admin].blank? && session[:admin] == true %>
+  <li><a href="#">Administration</a>
+    <ul>
+      <li><%= link_to "Se déconnecter", "/admin/logout" %></li>
+    </ul>
+  </li>
+  <% end %>
+</ul>
+-->
+
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="home">La Pharmacie</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+              <li class="dropdown active">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Accueil <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Présentation", "/home" %></li>
+                  <li><%= link_to "Charte de qualité", "/charter" %></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Informations pratiques <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Horaires", "/schedule" %></li>
+                  <li><%= link_to "Accès", "/map" %></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Nous contacter</a></li>
+                  <li><%= link_to "Professionnels de santé", "/workers" %></li>
+                  <li><%= link_to "L'équipe", equip_people_path %></li>
+               </ul>
+             </li>
+
+             <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vitrine <span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                 <li><%= link_to "Visite guidée", "/slides" %></li>
+                 <li><%= link_to "Promotions", "/promotions" %></li>
+                 <li><%= link_to "Matériel médical", "/equipment" %></li>
+               </ul>
+             </li>
+            <% if !session[:admin].blank? && session[:admin] == true %>
+                <li><%= link_to "Se déconnecter", "/admin/logout" %></li>
+            <% end %>
+           </ul>
+         </div><!--/.nav-collapse -->
+       </div><!--/.container-fluid -->
+     </nav>
+
+    <% if notice %>
+        <div class="alert alert-info" role="alert"><%= notice %></div>
+    <% end %>
+
+     <!-- Main component for a primary marketing message or call to action -->
+     <!--<div class="jumbotron">-->
+    <div class="panel panel-default">
+      <% if defined? @title %>
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @title %></h3>
+        </div>
+      <% end %>
+
+      <div class="panel-body">
+        <%= yield %>
+      </div>
+    </div>
+ 
+   </div> <!-- /container -->
+ 
+ 
+   <!-- Bootstrap core JavaScript
+   ================================================== -->
+   <!-- Placed at the end of the document so the pages load faster --
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+-->
+
+  </body>
+</html>

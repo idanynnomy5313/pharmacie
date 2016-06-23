@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id attachment:</strong>
+  <%= @promotion.id_attachment %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @promotion.description %>
+</p>
+
+<%= link_to 'Edit', edit_promotion_path(@promotion) %> |
+<%= link_to 'Back', promotions_path %>

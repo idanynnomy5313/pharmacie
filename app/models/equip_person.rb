@@ -1,0 +1,2 @@
+class EquipPerson < ApplicationRecord
+end

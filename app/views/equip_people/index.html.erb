@@ -1,0 +1,18 @@
+<!--<div class="container">
+<div class="row">-->
+<% @equip_people.each do |equip_person| %>
+  <div class="person well">
+  <!--<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">-->
+    <div class="name"><%= equip_person.name %></div>
+    <div class="photo"><%= image_tag attachment_show_path(equip_person.id_attachment) %></div>
+    <div class="description">
+      <%= equip_person.description %><br/>
+      <%= render partial: "shared/edit_link", locals: {path: edit_equip_person_path(equip_person)} %>
+      <%= render partial: "shared/remove_link", locals: {object: equip_person} %>
+    </div>
+  </div>
+<% end %>
+
+<br/>
+
+<%= render partial: "shared/add_link", locals: {path: new_equip_person_path, text: "Ajouter un membre de l'équipe"} %>

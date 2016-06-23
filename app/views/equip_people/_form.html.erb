@@ -1,0 +1,33 @@
+<%= form_tag({:action => 'index'}, :multipart => true) do %>
+<%#= form_for(equip_person) do |f| %>
+  <% if equip_person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(equip_person.errors.count, "error") %> prohibited this equip_person from being saved:</h2>
+
+      <ul>
+      <% equip_person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag(:name, "Name:") %>
+    <%= text_field_tag(:name) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag(:description, "Description:") %>
+    <%= text_area_tag(:description) %>
+  </div>
+  
+  <div class="field">
+    <%= label_tag(:attachment, "Image:") %>
+    <%= file_field_tag(:attachment) %>
+  </div>
+  
+  <div class="actions">
+    <%= submit_tag "Valider" %>
+  </div>
+<% end %>
